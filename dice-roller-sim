@@ -1,0 +1,43 @@
+import random
+diceSizeList = []
+diceSizePairs = []
+diceResultsPairs = []
+diceCount = int(input('Number of dice: '))
+diceResultSum = 0
+i = 1
+
+while i <= diceCount:
+    j = i - 1
+    if i in range(1, diceCount + 1):
+        #clear
+        dicePairs = []
+        diceResults = []
+
+        #get input
+        str(i)
+        diceQuestion = str('Size of dice ') + str(i) +str(':')
+        diceSizeList.append(int(input((diceQuestion))))
+        int(i)
+
+        #setup of dice sizes nested lists
+        dicePairs.append(i)
+        dicePairs.append(diceSizeList[(j)])
+        diceSizePairs.append(dicePairs)
+
+        #setup of dice results nested list
+        diceResults.append(str(str(diceSizeList[(j)]) + '-sided'))
+        diceSizeIndex = dicePairs[1]
+        diceResults.append(random.randint(1, diceSizeIndex))
+        diceResultsPairs.append(diceResults)
+        diceResultSum += diceResultsPairs[j][1] #also the same as += dicePairs[1]?
+
+        #print('i = ', i) #to debug
+        i += 1
+
+    elif i > diceCount:
+        break
+
+print('Dice size list: ', diceSizeList)
+print('The dice results are: ', diceResultsPairs)
+print('The sum of the dice results is: ', diceResultSum)
+
